@@ -60,8 +60,8 @@ Example results (replace with actual metrics):
 ## How to Run  
 ```bash
 # Clone the repository
-git clone https://github.com/[username]/[repo-name].git
-cd [repo-name]
+git clone https://github.com/leishapm/datathon-2025-lifeline-team76.git
+cd datathon-2025-lifeline-team76
 
 # Install dependencies
 pip install -r requirements.txt
