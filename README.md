@@ -44,13 +44,6 @@ This repository contains our submission for **Datathon 2025 – Lifeline**, whic
 - **Secondary:** Balanced Accuracy  
 - **Diagnostics:** Confusion matrix, per-class recall, and classification report  
 
-Example results (replace with actual metrics):  
-| Model | Macro-F1 | Balanced Accuracy |
-|--------|-----------|------------------|
-| Logistic Regression | 0.74 | 0.76 |
-| Random Forest (300 trees) | 0.82 | 0.83 |
-| Best Random Forest (GridSearchCV) | 0.84 | 0.85 |
-
 ## Explainability  
 - **Feature Importances:** Variability-related features (ASTV, ALTV, mSTV) and deceleration types (DS, DP) were most influential.  
 - **SHAP Analysis:** Confirmed that reduced variability and frequent decelerations increase the likelihood of Pathologic classification, consistent with CTG interpretation guidelines (Ayres-de-Campos et al., 2000).
