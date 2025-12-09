@@ -23,14 +23,6 @@ This repository contains our submission for **Datathon 2025 – Lifeline**, whic
 - **Features used:**  
   `LB, AC, FM, UC, ASTV, mSTV, ALTV, mLTV, DL, DS, DP, Width, Min, Max, Nmax, Nzeros, Mode, Mean, Median, Variance, Tendency`  
 
-- **Class distribution:**
-
-| Class | Count |
-|-------|-------|
-| 0 (Normal)   | 1655 |
-| 1 (Suspect)  | 295  |
-| 2 (Pathologic)| 176  |
-
 ---
 
 ## Data Processing Pipeline  
@@ -66,7 +58,7 @@ This repository contains our submission for **Datathon 2025 – Lifeline**, whic
 
 - **Primary Metric:** Macro-F1 (equal weighting across classes)  
 - **Secondary Metric:** Balanced Accuracy  
-- **Diagnostics:** Confusion matrix, per-class recall, precision, and F1-score  
+- **Diagnostics:** Confusion matrix, per-class precision, recall, and F1-score  
 
 **Class distribution (target `NSP`):**
 
@@ -82,8 +74,45 @@ This repository contains our submission for **Datathon 2025 – Lifeline**, whic
 |-------|-----------|-----------------|
 | Logistic Regression | 0.787 | 0.850 |
 | Random Forest (300 trees) | 0.899 | 0.906 |
-| **Best RF (GridSearchCV)** | 0.904 (CV) / 0.884 (hold-out) | 0.899 (hold-out) |
+| **Best RF (GridSearchCV)** | 0.904 (CV) / 0.884 (hold-out) | 0.899 |
 
 **Best Random Forest Hyperparameters:**  
 ```python
 {'clf__max_depth': None, 'clf__min_samples_split': 5, 'clf__n_estimators': 200}
+```
+---
+
+**Per-class performance (hold-out, Best RF):**
+
+| Class | Precision | Recall | F1-score | Support |
+|-------|-----------|--------|----------|--------|
+| 0 (Normal)   | 0.97 | 0.96 | 0.97 | 332 |
+| 1 (Suspect)  | 0.77 | 0.80 | 0.78 | 59  |
+| 2 (Pathologic)| 0.87 | 0.94 | 0.90 | 35  |
+
+---
+
+## Explainability  
+- **Feature Importances (Random Forest):**  
+  ASTV, ALTV, Mean, AC, Median, DP, Mode, LB, Variance, Width were most influential.  
+
+- **SHAP Analysis:**  
+  Reduced variability and frequent decelerations increase likelihood of Pathologic classification, consistent with CTG guidelines (Ayres-de-Campos et al., 2000).  
+
+*(Include a `reports/shap_summary.png` for a visual example if available.)*  
+
+---
+
+## How to Run  
+
+```bash
+# Clone the repository
+git clone https://github.com/leishapm/datathon-2025-lifeline-team76.git
+cd datathon-2025-lifeline-team76
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the project (notebook workflow)
+jupyter notebook datathon76.ipynb
+# or open it directly in VS Code or Colab
