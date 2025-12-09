@@ -59,6 +59,6 @@ cd datathon-2025-lifeline-team76
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the main script
-python ctg_model_pipeline.py
-# or open ctg_model_pipeline.ipynb in Jupyter/Colab
+# Run the project (notebook workflow)
+jupyter notebook datathon76.ipynb
+# or open it directly in VS Code or Colab
